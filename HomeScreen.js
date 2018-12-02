@@ -18,10 +18,10 @@ const styles = StyleSheet.create({
   },
 });
 
-export class HomeScreen extends Component {
+class HomeScreenC extends Component {
   componentDidMount() {
-    // const { teksti } = this.props;
-    // teksti()
+    const { getTeksti } = this.props;
+    getTeksti();
   }
 
   render() {
@@ -39,22 +39,22 @@ export class HomeScreen extends Component {
   }
 }
 
-HomeScreen.propTypes = {
+HomeScreenC.propTypes = {
   response: PropTypes.string,
   // teksti: PropTypes.func,
 };
 
-HomeScreen.defaultProps = {
+HomeScreenC.defaultProps = {
   response: '',
   // teksti: getTeksti(),
 };
 
 const mapStateToProps = state => ({
-  testiTeksti: state.testiString,
+  response: state.testiString,
 });
 
 const mapDispatchProps = {
-  teksti: getTeksti,
+  getTeksti,
 };
 
-export default connect(mapStateToProps, mapDispatchProps)(HomeScreen)
+export default connect(mapStateToProps, mapDispatchProps)(HomeScreenC)

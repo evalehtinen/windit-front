@@ -1,5 +1,4 @@
 import React from 'react';
-// import { View } from 'react-native';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import axios from 'axios';
@@ -7,7 +6,7 @@ import axiosMiddleware from 'redux-axios-middleware';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 
 import reducer from './reducers/testi';
-import { HomeScreen } from './HomeScreen';
+import HomeScreenC from './HomeScreen';
 import { DetailsScreen } from './DetailsScreen';
 
 const client = axios.create({
@@ -17,7 +16,7 @@ const client = axios.create({
 
 const store = createStore(reducer, applyMiddleware(axiosMiddleware(client)));
 const AppNavigator = createStackNavigator({
-  Home: HomeScreen,
+  Home: HomeScreenC,
   Details: DetailsScreen,
 });
 const AppContainer = createAppContainer(AppNavigator);
