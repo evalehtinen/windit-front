@@ -15,6 +15,7 @@
     // React Native includes images via require('../images/example.png')
     "global-require": "off",
     "linebreak-style": ["error", "windows"],
-    "semi": "off"
+    "semi": "off",
+    "react/prop-types": 0
   }
 }
