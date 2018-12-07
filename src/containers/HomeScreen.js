@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { StyleSheet, Text, View, Button } from 'react-native'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { getTeksti } from './reducers/testi'
+import { getTeksti } from '../reducers/testi'
 
 const styles = StyleSheet.create({
   container: {
@@ -18,10 +18,10 @@ const styles = StyleSheet.create({
   },
 });
 
-class HomeScreenC extends Component {
+class HomeScreen extends Component {
   componentDidMount() {
-    const { getTeksti } = this.props;
-    getTeksti();
+    const { fetchTeksti } = this.props;
+    fetchTeksti();
   }
 
   render() {
@@ -29,7 +29,7 @@ class HomeScreenC extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.textStyle}>{response}</Text>
-        <Text style={styles.textStyle}>Maincomponent</Text>
+        <Text style={styles.textStyle}>Maincomdpo</Text>
         <Button
           title="Go to Details"
           onPress={() => navigation.navigate('Details')}
@@ -39,12 +39,12 @@ class HomeScreenC extends Component {
   }
 }
 
-HomeScreenC.propTypes = {
+HomeScreen.propTypes = {
   response: PropTypes.string,
   // teksti: PropTypes.func,
 };
 
-HomeScreenC.defaultProps = {
+HomeScreen.defaultProps = {
   response: '',
   // teksti: getTeksti(),
 };
@@ -54,7 +54,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchProps = {
-  getTeksti,
+  fetchTeksti: getTeksti,
 };
 
-export default connect(mapStateToProps, mapDispatchProps)(HomeScreenC)
+export default connect(mapStateToProps, mapDispatchProps)(HomeScreen)

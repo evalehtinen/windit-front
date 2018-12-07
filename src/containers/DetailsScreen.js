@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export class DetailsScreen extends Component {
+class DetailsScreen extends Component {
   componentDidMount() {
 
   }
