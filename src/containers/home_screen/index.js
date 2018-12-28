@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { StyleSheet, Text, View, Button } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { getTeksti } from '../reducers/testi'
+import { getTeksti } from '../../reducers/testi'
+import FloatingActionButton from '../../navigation/floating_action_button';
 
 const styles = StyleSheet.create({
   container: {
@@ -25,15 +26,12 @@ class HomeScreen extends Component {
   }
 
   render() {
-    const { response, navigation } = this.props;
+    const { response } = this.props;
     return (
       <View style={styles.container}>
         <Text style={styles.textStyle}>{response}</Text>
-        <Text style={styles.textStyle}>Maincomdpo</Text>
-        <Button
-          title="Go to Details"
-          onPress={() => navigation.navigate('Details')}
-        />
+        <Text style={styles.textStyle}>Main</Text>
+        <FloatingActionButton />
       </View>
     )
   }

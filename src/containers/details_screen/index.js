@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Button, StyleSheet, Text, View } from 'react-native'
 import { connect } from 'react-redux'
+import FloatingActionButton from '../../navigation/floating_action_button';
 
 const styles = StyleSheet.create({
   container: {
@@ -26,23 +27,14 @@ class DetailsScreen extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.textStyle}>Details</Text>
-        <Button
-          title="Go to Home"
-          onPress={() => navigation.navigate('Home')}
-        />
-        <Button
-          title="Go back"
-          onPress={() => navigation.goBack()}
-        />
+        <FloatingActionButton />
       </View>
     )
   }
 }
 
-const mapStateToProps = state => ({
-});
+const mapStateToProps = state => ({});
 
-const mapDispatchProps = {
-};
+const mapDispatchProps = {};
 
 export default connect(mapStateToProps, mapDispatchProps)(DetailsScreen)
