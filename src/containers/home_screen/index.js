@@ -26,12 +26,12 @@ class HomeScreen extends Component {
   }
 
   render() {
-    const { response } = this.props;
+    const { response, navigation } = this.props;
     return (
       <View style={styles.container}>
         <Text style={styles.textStyle}>{response}</Text>
         <Text style={styles.textStyle}>Main</Text>
-        <FloatingActionButton />
+        <FloatingActionButton navigation={navigation} />
       </View>
     )
   }

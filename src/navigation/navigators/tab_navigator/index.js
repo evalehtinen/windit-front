@@ -17,10 +17,23 @@ const styles = StyleSheet.create({
   },
 });
 
-const TabNavigator = createBottomTabNavigator({
-  Home: HomeScreen,
-  Details: DetailsScreen,
+const TabNavigator = createBottomTabNavigator(
+{
+  Home: {
+    screen: HomeScreen,
+    navigationOptions: {
+      title: 'Home'
+    }
+  },
+  Details: {
+    screen: DetailsScreen,
+    navigationOptions: {
+      title: 'Details'
+    }
+  },
+
 }, {
+  initialRouteName: 'Home',
   defaultNavigationOptions: ({}),
   tabBarOptions: {
     activeTintColor: colors.crayolaRed,
@@ -28,6 +41,7 @@ const TabNavigator = createBottomTabNavigator({
     labelStyle: styles.text,
     tabStyle: styles.tab,
   },
+  backBehaviour: 'none'
 });
 
 export default TabNavigator;

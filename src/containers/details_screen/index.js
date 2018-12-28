@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { Button, StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
 import { connect } from 'react-redux'
-import FloatingActionButton from '../../navigation/floating_action_button';
+import FloatingActionButton from '../../navigation/floating_action_button'
 
 const styles = StyleSheet.create({
   container: {
@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 28,
   },
-});
+})
 
 class DetailsScreen extends Component {
   componentDidMount() {
@@ -27,14 +27,14 @@ class DetailsScreen extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.textStyle}>Details</Text>
-        <FloatingActionButton />
+        <FloatingActionButton navigation={navigation} />
       </View>
     )
   }
 }
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({})
 
-const mapDispatchProps = {};
+const mapDispatchProps = {}
 
 export default connect(mapStateToProps, mapDispatchProps)(DetailsScreen)
