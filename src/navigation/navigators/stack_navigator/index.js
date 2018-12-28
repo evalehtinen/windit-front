@@ -1,5 +1,6 @@
-import { createStackNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation'
 import AddConsumption from '../../../components/AddConsumption'
+import AddSymptom from '../../../components/AddSymptom'
 import TabNavigator from '../tab_navigator'
 
 const StackNavigator = createStackNavigator(
@@ -7,11 +8,16 @@ const StackNavigator = createStackNavigator(
     Main: {
         screen: TabNavigator
     },
-    AddC: {
+    add_consumption: {
       screen: AddConsumption,
       navigationOptions: {
-          title: 'Add Consumption',
-          tabBarVisible: true
+          title: 'Add Consumption'
+      }
+    },
+    add_symptom: {
+      screen: AddSymptom,
+      navigationOptions: {
+          title: 'Add Symptom'
       }
     },
   }
