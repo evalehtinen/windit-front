@@ -1,6 +1,6 @@
 import { createStackNavigator } from 'react-navigation'
 import AddConsumption from '../../../containers/add_consumption'
-import AddSymptom from '../../../components/AddSymptom'
+import AddSymptom from '../../../containers/add_symptom'
 import TabNavigator from '../tab_navigator'
 
 const StackNavigator = createStackNavigator(
