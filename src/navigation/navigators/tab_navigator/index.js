@@ -32,17 +32,15 @@ const TabNavigator = createBottomTabNavigator(
       },
     },
 
-  }, {
-    initialRouteName: 'Home',
-    defaultNavigationOptions: ({}),
-    tabBarOptions: {
-      activeTintColor: colors.crayolaRed,
-      inactiveTintColor: 'gray',
-      labelStyle: styles.text,
-      tabStyle: styles.tab,
-    },
-    backBehaviour: 'none',
+}, {
+  initialRouteName: 'Home',
+  tabBarOptions: {
+    activeTintColor: colors.crayolaRed,
+    inactiveTintColor: 'gray',
+    labelStyle: styles.text,
+    tabStyle: styles.tab,
   },
+    backBehaviour: 'none',
 );
 
 export default TabNavigator;

@@ -15,21 +15,21 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({ dispatch });
 
 class AppNav extends Component {
-  componentWillMount() {
-    BackHandler.addEventListener('hardwareBackPress', this.handleBackButton);
-  }
-
-  componentWillUnmount() {
-    this.removeEventListener('hardwareBackPress', this.handleBackButton);
-  }
-
-  handleBackButton = () => {
-    const { navigation, dispatch } = this.props;
-    // if its at the most backwards state
-    if (navigation.index === 0) return false;
-    dispatch(navigateBack());
-    return true;
-  };
+  // componentWillMount() {
+  //   BackHandler.addEventListener('hardwareBackPress', this.handleBackButton);
+  // }
+  //
+  // componentWillUnmount() {
+  //   this.removeEventListener('hardwareBackPress', this.handleBackButton);
+  // }
+  //
+  // handleBackButton = () => {
+  //   const { navigation, dispatch } = this.props;
+  //   // if its at the most backwards state
+  //   if (navigation.index === 0) return false;
+  //   dispatch(navigateBack());
+  //   return true;
+  // };
 
 
   render() {

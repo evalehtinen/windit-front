@@ -5,12 +5,12 @@ import {connect} from "react-redux";
 const actions = [{
   text: 'Lisää oire',
   icon: require('../../../assets/baseline_airline_seat_legroom_normal_black_18dp.png'),
-  name: 'bt_symptom',
+  name: 'add_symptom',
   position: 1,
 }, {
   text: 'Lisää ruoka-aines',
   icon: require('../../../assets/baseline_cake_black_18dp.png'),
-  name: 'bt_food',
+  name: 'add_consumption',
   position: 2,
 }];
 
@@ -19,7 +19,7 @@ const FloatingActionButton = ({ navigation }) => (
   <FloatingAction
     actions={actions}
     onPressItem={(name) => {
-      navigation.navigate('AddC')
+      navigation.navigate(name)
     }}
   />
 );
