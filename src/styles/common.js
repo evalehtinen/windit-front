@@ -1,4 +1,5 @@
 const colors = {
+  primaryText: this.haastrichtBlue,
   haastrichtBlue: '#081642',
   crayolaRed: '#ED254E',
   stilDeGrainYellow: '#F9DC5C',
@@ -7,7 +8,7 @@ const colors = {
   almond: '#EFD9CE',
   pastelBlue: '#A7BED3',
   lightSteelBlue: '#BCC4DB',
-}
+};
 
 // const dimensions = {
 //

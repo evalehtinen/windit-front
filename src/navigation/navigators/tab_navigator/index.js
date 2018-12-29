@@ -18,30 +18,31 @@ const styles = StyleSheet.create({
 });
 
 const TabNavigator = createBottomTabNavigator(
-{
-  Home: {
-    screen: HomeScreen,
-    navigationOptions: {
-      title: 'Home'
-    }
-  },
-  Details: {
-    screen: DetailsScreen,
-    navigationOptions: {
-      title: 'Details'
-    }
-  },
+  {
+    Home: {
+      screen: HomeScreen,
+      navigationOptions: {
+        title: 'Home',
+      },
+    },
+    Details: {
+      screen: DetailsScreen,
+      navigationOptions: {
+        title: 'Details',
+      },
+    },
 
-}, {
-  initialRouteName: 'Home',
-  defaultNavigationOptions: ({}),
-  tabBarOptions: {
-    activeTintColor: colors.crayolaRed,
-    inactiveTintColor: 'gray',
-    labelStyle: styles.text,
-    tabStyle: styles.tab,
+  }, {
+    initialRouteName: 'Home',
+    defaultNavigationOptions: ({}),
+    tabBarOptions: {
+      activeTintColor: colors.crayolaRed,
+      inactiveTintColor: 'gray',
+      labelStyle: styles.text,
+      tabStyle: styles.tab,
+    },
+    backBehaviour: 'none',
   },
-  backBehaviour: 'none'
-});
+);
 
 export default TabNavigator;
