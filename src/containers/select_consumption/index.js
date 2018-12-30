@@ -4,8 +4,10 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import SearchBar from '../../components/search_bar'
-import colors from '../../styles/common'
+import colors, { commonStyles } from '../../styles/common';
+
 import { setSelectedConsumption } from '../../reducers/consumption_event';
+import { setConsumableListFiltered } from '../../reducers/consumable_list';
 
 const styles = StyleSheet.create({
   searchContainer: {
@@ -14,7 +16,19 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
   },
   textStyle: {
+    color: colors.stilDeGrainYellow,
+  },
+  listItem: {
+    paddingLeft: 16,
+    paddingTop: 8,
+    paddingBottom: 8,
     color: colors.haastrichtBlue,
+    fontSize: 16,
+  },
+  separator: {
+    ...commonStyles.separator,
+    marginLeft: 10,
+    marginRight: 10,
   },
 });
 
@@ -27,19 +41,45 @@ function selectConsumable(props) {
 function ConsumableItem(props) {
   const { name } = props;
   return (
-    <TouchableOpacity onPress={() => selectConsumable(props)}>
-      <Text>{name}</Text>
-    </TouchableOpacity>
+    <View>
+      <TouchableOpacity onPress={() => selectConsumable(props)}>
+        <Text style={styles.listItem}>{name}</Text>
+      </TouchableOpacity>
+      <View style={styles.separator} />
+    </View>
   )
 }
 
-function SelectConsumption({ consumableList, navigation, setSelectConsumable }) {
+function SelectConsumption({
+  consumableList,
+  consumableListFiltered,
+  navigation,
+  setSelectConsumable,
+  callSetConsumableListFiltered,
+}) {
+  const filterList = (text) => {
+    if (text.length === 0) {
+      callSetConsumableListFiltered(consumableList);
+      return
+    }
+    let updatedList = consumableList;
+    updatedList = updatedList.filter(item => item.name.toLowerCase().search(
+      text.toLowerCase(),
+    ) !== -1);
+    callSetConsumableListFiltered(updatedList)
+  };
+
   return (
     <View>
       <View style={styles.searchContainer}>
-        <SearchBar />
+        <SearchBar
+          placeHolderColor={colors.lightSteelBlue}
+          onChangeText={text => filterList(text)}
+          placeholder="Syötä ruokaa" // todo: translate
+          maxLength={30}
+        />
       </View>
-      {consumableList.map(item => (
+      {consumableListFiltered.map(item => (
         <ConsumableItem
           key={item.id}
           name={item.name}
@@ -55,9 +95,11 @@ function SelectConsumption({ consumableList, navigation, setSelectConsumable }) 
 
 const mapStateToProps = state => ({
   consumableList: state.consumableList.consumableList,
+  consumableListFiltered: state.consumableList.consumableListFiltered,
 });
 
 const mapDispatchToProps = dispatch => ({
+  callSetConsumableListFiltered: props => dispatch(setConsumableListFiltered(props)),
   setSelectConsumable: props => dispatch(setSelectedConsumption(props)),
 });
 

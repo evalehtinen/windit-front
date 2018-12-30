@@ -1,3 +1,5 @@
+import { StyleSheet } from 'react-native'
+
 const colors = {
   primaryText: this.haastrichtBlue,
   haastrichtBlue: '#081642',
@@ -13,5 +15,11 @@ const colors = {
 // const dimensions = {
 //
 // };
+export const commonStyles = StyleSheet.create({
+  separator: {
+    borderBottomColor: colors.lightSteelBlue,
+    borderBottomWidth: 1,
+  },
+});
 
 export default colors;

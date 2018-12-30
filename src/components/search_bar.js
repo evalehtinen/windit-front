@@ -26,20 +26,23 @@ const styles = StyleSheet.create({
   },
 });
 
-const SearchBar = () => (
-  <View style={styles.searchInput}>
-    <MaterialIcons
-      name="search"
-      size={22}
-      style={styles.searchIcon}
-      color={colors.periwinkle}
-    />
-    <TextInput
-      style={styles.inputText}
-      placeholder="Syötä ruoka"
-      placeholderTextColor={colors.periwinkle}
-    />
-  </View>
-);
+const SearchBar = (props) => {
+  const { placeHolderColor } = props;
+  return (
+    <View style={styles.searchInput}>
+      <MaterialIcons
+        name="search"
+        size={22}
+        style={styles.searchIcon}
+        color={placeHolderColor}
+      />
+      <TextInput
+        {...props}
+        style={styles.inputText}
+        placeholderTextColor={placeHolderColor}
+      />
+    </View>
+  )
+};
 
 export default SearchBar
