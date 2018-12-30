@@ -1,9 +1,10 @@
 import React from 'react';
 import {
-  View, StyleSheet, Text,
+  View, StyleSheet, Text, TouchableOpacity,
 } from 'react-native';
 import { connect } from 'react-redux';
 import colors from '../../styles/common'
+import { postConsumableEvent } from '../../reducers/consumption_event'
 
 const styles = StyleSheet.create({
   searchContainer: {
@@ -16,10 +17,13 @@ const styles = StyleSheet.create({
   },
 });
 
-function AddConsumptionEvent({ consumable }) {
+function AddConsumptionEvent({ consumable, user, callPostConsumableEvent }) {
   return (
     <View>
       <Text>{consumable.name}</Text>
+      <TouchableOpacity onPress={() => callPostConsumableEvent(consumable, user, 0)}>
+        <Text>Lähetä pyyntö</Text>
+      </TouchableOpacity>
     </View>
   )
 }
@@ -27,9 +31,13 @@ function AddConsumptionEvent({ consumable }) {
 
 const mapStateToProps = state => ({
   consumable: state.consumptionEvent.selectedConsumption,
+  user: state.user.user,
 });
 
-const mapDispatchProps = {
-};
+const mapDispatchProps = dispatch => ({
+  callPostConsumableEvent: (consumable, user, amount) => dispatch(
+    postConsumableEvent(consumable, user, amount),
+  ),
+});
 
 export default connect(mapStateToProps, mapDispatchProps)(AddConsumptionEvent)

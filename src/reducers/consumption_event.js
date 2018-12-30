@@ -9,7 +9,7 @@ export default function consumptionEvent(state = { selectedConsumption: {} }, ac
       console.log('POST_CONSUMPTION called');
       return { ...state, loading: true };
     case POST_CONSUMPTION_EVENT_SUCCESS:
-      console.log('SUCCESS');
+      console.log('SUCCESS', action.payload.request.status);
       return {
         ...state,
         loading: false,
@@ -32,16 +32,27 @@ export default function consumptionEvent(state = { selectedConsumption: {} }, ac
   }
 }
 
-// export const postConsumable = consumable => ({
-//   type: POST_CONSUMPTION,
-//   payload: {
-//     request: {
-//       // url: '/ingredient',
-//     },
-//   },
-// })
+export const postConsumableEvent = (consumable, user, amount) => {
+  const body = {
+    user_id: user.id,
+    ingredient_id: consumable.id,
+    amount,
+    consumed: Date().time,
+  };
+
+  return {
+    type: POST_CONSUMPTION_EVENT,
+    payload: {
+      request: {
+        method: 'post',
+        url: '/consumption',
+        data: body,
+      },
+    },
+  }
+};
 
 export const setSelectedConsumption = consumable => ({
   type: SELECT_CONSUMPTION,
   consumable,
-})
+});
