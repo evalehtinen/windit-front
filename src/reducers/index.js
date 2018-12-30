@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
-import testi from './testi'
+import consumableList from './consumable_list'
+import consumptionEvent from './consumption_event'
 
 export default combineReducers({
-  testi,
+  consumableList,
+  consumptionEvent,
 });

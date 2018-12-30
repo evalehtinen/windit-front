@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { getTeksti } from '../../reducers/testi'
 import FloatingActionButton from '../../navigation/floating_action_button';
+import { getConsumables } from '../../reducers/consumable_list';
 
 const styles = StyleSheet.create({
   container: {
@@ -21,15 +21,14 @@ const styles = StyleSheet.create({
 
 class HomeScreen extends Component {
   componentDidMount() {
-    const { fetchTeksti } = this.props;
-    fetchTeksti();
+    const { callGetConsumables } = this.props;
+    callGetConsumables()
   }
 
   render() {
-    const { response, navigation } = this.props;
+    const { navigation } = this.props;
     return (
       <View style={styles.container}>
-        <Text style={styles.textStyle}>{response}</Text>
         <Text style={styles.textStyle}>Main</Text>
         <FloatingActionButton navigation={navigation} />
       </View>
@@ -38,21 +37,17 @@ class HomeScreen extends Component {
 }
 
 HomeScreen.propTypes = {
-  response: PropTypes.string,
-  // teksti: PropTypes.func,
+  callGetConsumables: PropTypes.func.isRequired,
 };
 
 HomeScreen.defaultProps = {
-  response: '',
-  // teksti: getTeksti(),
 };
 
 const mapStateToProps = state => ({
-  response: state.testiString,
 });
 
 const mapDispatchProps = {
-  fetchTeksti: getTeksti,
+  callGetConsumables: getConsumables,
 };
 
 export default connect(mapStateToProps, mapDispatchProps)(HomeScreen)

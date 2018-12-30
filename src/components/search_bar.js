@@ -6,6 +6,7 @@ import colors from '../styles/common'
 const styles = StyleSheet.create({
   searchInput: {
     display: 'flex',
+    flexDirection: 'row',
     backgroundColor: '#fff',
     borderRadius: 3,
     height: 45,
@@ -19,30 +20,26 @@ const styles = StyleSheet.create({
     top: 12,
   },
   inputText: {
-    display: 'flex',
-    marginTop: 13,
     marginLeft: 43,
     fontSize: 15,
     color: colors.primaryText,
   },
 });
 
-function SearchBar() {
-  return (
-    <View style={styles.searchInput}>
-      <MaterialIcons
-        name="search"
-        size={22}
-        style={styles.searchIcon}
-        color={colors.periwinkle}
-      />
-      <TextInput
-        style={styles.inputText}
-        placeholder="Syötä ruoka"
-        placeholderTextColor={colors.periwinkle}
-      />
-    </View>
-  )
-}
+const SearchBar = () => (
+  <View style={styles.searchInput}>
+    <MaterialIcons
+      name="search"
+      size={22}
+      style={styles.searchIcon}
+      color={colors.periwinkle}
+    />
+    <TextInput
+      style={styles.inputText}
+      placeholder="Syötä ruoka"
+      placeholderTextColor={colors.periwinkle}
+    />
+  </View>
+);
 
 export default SearchBar

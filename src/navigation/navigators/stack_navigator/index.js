@@ -1,5 +1,6 @@
 import { createStackNavigator } from 'react-navigation'
-import AddConsumption from '../../../containers/add_consumption'
+import SelectConsumption from '../../../containers/select_consumption'
+import AddConsumptionEvent from '../../../containers/add_consumption_event'
 import AddSymptom from '../../../containers/add_symptom'
 import TabNavigator from '../tab_navigator'
 
@@ -8,10 +9,16 @@ const StackNavigator = createStackNavigator(
     Main: {
       screen: TabNavigator,
     },
-    add_consumption: {
-      screen: AddConsumption,
+    select_consumption: {
+      screen: SelectConsumption,
       navigationOptions: {
-        title: 'Add Consumption',
+        title: 'Valitse ruoka tai juoma',
+      },
+    },
+    add_consumption_event: {
+      screen: AddConsumptionEvent,
+      navigationOptions: {
+        title: 'Lisää ruoka tai juoma',
       },
     },
     add_symptom: {

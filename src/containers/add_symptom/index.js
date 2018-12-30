@@ -4,8 +4,7 @@ import { connect } from 'react-redux';
 
 function AddSymptom() {
   return (
-    <View>
-    </View>
+    <View />
   )
 }
 

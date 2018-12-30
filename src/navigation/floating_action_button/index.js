@@ -1,6 +1,6 @@
 import { FloatingAction } from 'react-native-floating-action';
 import React from 'react'
-import {connect} from "react-redux";
+import { connect } from 'react-redux';
 
 const actions = [{
   text: 'Lisää oire',
@@ -10,7 +10,7 @@ const actions = [{
 }, {
   text: 'Lisää ruoka-aines',
   icon: require('../../../assets/baseline_cake_black_18dp.png'),
-  name: 'add_consumption',
+  name: 'select_consumption',
   position: 2,
 }];
 
